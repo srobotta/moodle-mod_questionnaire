@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 namespace mod_questionnaire\question;
 use core_media_manager;
 use form_filemanager;
@@ -86,20 +87,22 @@ class file extends question {
         } else {
             $draftitemid = file_get_submitted_draft_itemid($elname);
         }
-        $options = self::get_file_manager_option();
         if ($draftitemid > 0) {
-            file_prepare_draft_area($draftitemid, $this->context->id, 'mod_questionnaire', 'file', $this->id, $options);
+            file_prepare_draft_area($draftitemid, $this->context->id,
+                'mod_questionnaire', 'file', $this->id, self::get_file_manager_option());
         } else {
             $draftitemid = file_get_unused_draft_itemid();
         }
         // Filemanager form element implementation is far from optimal, we need to rework this if we ever fix it...
         require_once("$CFG->dirroot/lib/form/filemanager.php");
 
-        $options->client_id = uniqid();
-        $options->itemid = $draftitemid;
-        $options->target = $this->id;
-        $options->name = $elname;
-        $fm = new form_filemanager($options);
+        $options = array_merge(self::get_file_manager_option(), [
+            'client_id' => uniqid(),
+            'itemid' => $draftitemid,
+            'target' => $this->id,
+            'name' => $elname,
+        ]);
+        $fm = new form_filemanager((object)$options);
         $output = $PAGE->get_renderer('core', 'files');
 
         $html = '<div class="form-filemanager" data-fieldtype="filemanager">' .
@@ -141,12 +144,12 @@ class file extends question {
      * @return array
      */
     public static function get_file_manager_option() {
-        $options = new \stdClass();
-        $options->mainfile = '';
-        $options->subdirs = false;
-        $options->accepted_types = ['image', '.pdf'];
-        $options->maxfiles = 1;
-        return $options;
+        return [
+            'mainfile' => '',
+            'subdirs' => false,
+            'accepted_types' => ['image', '.pdf'],
+            'maxfiles' => 1,
+        ];
     }
 
     /**

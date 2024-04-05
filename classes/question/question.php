@@ -18,8 +18,6 @@ namespace mod_questionnaire\question;
 use mod_questionnaire\edit_question_form;
 use mod_questionnaire\responsetype\response\response;
 use questionnaire;
-
-defined('MOODLE_INTERNAL') || die();
 use html_writer;
 
 /**
