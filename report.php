@@ -284,6 +284,9 @@ switch ($action) {
     case 'delallresp': // Delete all responses? Ask for confirmation.
         require_capability('mod/questionnaire:deleteresponses', $context);
 
+        // Get all responses including incompletes.
+        $respsallparticipants = $questionnaire->get_responses(false, 0, true);
+
         if (!empty($respsallparticipants)) {
             // Print the page header.
             $PAGE->set_title(get_string('deletingresp', 'questionnaire'));
@@ -387,6 +390,9 @@ switch ($action) {
         } else if ($questionnaire->survey->courseid != $course->id) {
             throw new \moodle_exception('surveyowner', 'mod_questionnaire');
         }
+
+        // Get all responses including incompletes.
+        $respsallparticipants = $questionnaire->get_responses(false, 0, true);
 
         // Available group modes (0 = no groups; 1 = separate groups; 2 = visible groups).
         if ($groupmode > 0) {
