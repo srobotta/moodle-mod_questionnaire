@@ -42,6 +42,7 @@ define('QUESRATE', 8);
 define('QUESDATE', 9);
 define('QUESNUMERIC', 10);
 define('QUESSLIDER', 11);
+define('QUESFILE', 12);
 define('QUESPAGEBREAK', 99);
 define('QUESSECTIONTEXT', 100);
 
@@ -123,6 +124,7 @@ abstract class question {
         QUESPAGEBREAK => 'pagebreak',
         QUESSECTIONTEXT => 'sectiontext',
         QUESSLIDER => 'slider',
+        QUESFILE => 'file',
     ];
 
     /** @var array $notifications Array of extra messages for display purposes. */
