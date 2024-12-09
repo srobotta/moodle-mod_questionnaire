@@ -705,7 +705,7 @@ class behat_mod_questionnaire extends behat_base {
         // catching the exception thrown by behat_base::find() in case is not multiple.
         $this->execute('behat_general::i_click_on_in_the', [
             'div.fp-btn-add a, input.fp-btn-choose', 'css_element',
-            $filemanagernode, 'NodeElement'
+            $filemanagernode, 'NodeElement',
         ]);
 
         // Wait for the default repository (if any) to load. This checks that

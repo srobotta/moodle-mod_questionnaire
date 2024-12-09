@@ -151,8 +151,6 @@ class rank extends responsetype {
      * @param bool $rids
      * @param bool $anonymous
      * @return array
-     *
-     * TODO - This works differently than all other get_results methods. This needs to be refactored.
      */
     public function get_results($rids = false, $anonymous = false) {
         global $DB;
