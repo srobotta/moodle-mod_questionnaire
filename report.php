@@ -17,12 +17,13 @@
 /**
  * The main report page for a questionnaire.
  *
- * @package mod_questionnaire
+ * @package    mod_questionnaire
  * @copyright  2016 Mike Churchward (mike.churchward@poetgroup.org)
  * @author     Mike Churchward
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
+
 require_once("../../config.php");
 require_once($CFG->dirroot.'/mod/questionnaire/questionnaire.class.php');
 
@@ -414,7 +415,7 @@ switch ($action) {
             $event = \mod_questionnaire\event\all_responses_deleted::create(array(
                 'objectid' => $questionnaire->id,
                 'anonymous' => $anonymous,
-                'context' => $context
+                'context' => $context,
             ));
             $event->trigger();
 
@@ -465,7 +466,7 @@ switch ($action) {
             'user' => $user,
             'sid' => $sid,
             'action' => 'dfs',
-            'group' => $currentgroupid
+            'group' => $currentgroupid,
         ];
         $extrafields = $questionnaire->renderer->render_from_template('mod_questionnaire/extrafields', []);
         $output .= $questionnaire->renderer->download_dataformat_selector(get_string('downloadtypes', 'questionnaire'),
@@ -481,7 +482,7 @@ switch ($action) {
         $params = array('objectid' => $questionnaire->id,
             'context' => $questionnaire->context,
             'courseid' => $course->id,
-            'other' => array('action' => $action, 'instance' => $instance, 'currentgroupid' => $currentgroupid)
+            'other' => array('action' => $action, 'instance' => $instance, 'currentgroupid' => $currentgroupid),
         );
         $event = \mod_questionnaire\event\all_responses_saved_as_text::create($params);
         $event->trigger();
@@ -625,7 +626,7 @@ switch ($action) {
         $params = array('objectid' => $questionnaire->id,
             'context' => $context,
             'courseid' => $course->id,
-            'other' => array('action' => $action, 'instance' => $instance, 'groupid' => $currentgroupid)
+            'other' => array('action' => $action, 'instance' => $instance, 'groupid' => $currentgroupid),
         );
 
         if ($outputtarget == 'pdf') {

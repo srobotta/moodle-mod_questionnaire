@@ -162,6 +162,6 @@ $anonymous = $questionnaire->respondenttype == 'anonymous';
 $event = \mod_questionnaire\event\questionnaire_previewed::create(array(
                 'objectid' => $questionnaire->id,
                 'anonymous' => $anonymous,
-                'context' => $context
+                'context' => $context,
 ));
 $event->trigger();

@@ -330,13 +330,13 @@ class mod_questionnaire_generator extends testing_module_generator {
             if (!is_object($content)) {
                 $content = (object)[
                     'content' => $content,
-                    'value' => $content
+                    'value' => $content,
                 ];
             }
             $record = (object)[
                 'question_id' => $question->id,
                 'content' => $content->content,
-                'value' => $content->value
+                'value' => $content->value,
             ];
             $question->add_choice($record);
         }
@@ -507,7 +507,7 @@ class mod_questionnaire_generator extends testing_module_generator {
                         'response_id' => $responseid,
                         'question_id' => $questionresponse->questionid,
                         'choice_id' => $choiceid,
-                        'rankvalue' => $questionresponse->response->rankvalue
+                        'rankvalue' => $questionresponse->response->rankvalue,
                     ]
                 );
             } else {
@@ -519,7 +519,7 @@ class mod_questionnaire_generator extends testing_module_generator {
                 $DB->insert_record($instable, [
                         'response_id' => $responseid,
                         'question_id' => $questionresponse->questionid,
-                        'choice_id' => $choiceid
+                        'choice_id' => $choiceid,
                     ]
                 );
             }
@@ -527,7 +527,7 @@ class mod_questionnaire_generator extends testing_module_generator {
             $DB->insert_record('questionnaire_response_text', [
                     'response_id' => $responseid,
                     'question_id' => $questionresponse->questionid,
-                    'response' => $questionresponse->response
+                    'response' => $questionresponse->response,
                 ]
             );
         }
@@ -742,7 +742,7 @@ class mod_questionnaire_generator extends testing_module_generator {
                         [
                             'surveyid' => $questionnaire->sid,
                             'name' => $qdg->type_name($questiontype),
-                            'type_id' => QUESSECTIONTEXT
+                            'type_id' => QUESSECTIONTEXT,
                         ]
                     );
                     // Create questions.
@@ -756,7 +756,7 @@ class mod_questionnaire_generator extends testing_module_generator {
                             [
                                 'surveyid' => $questionnaire->sid,
                                 'name' => $qdg->type_name($questiontype).' '.$qname++,
-                                'type_id' => $questiontype
+                                'type_id' => $questiontype,
                             ],
                             $opts
                         );
@@ -767,7 +767,7 @@ class mod_questionnaire_generator extends testing_module_generator {
                         [
                             'surveyid' => $questionnaire->sid,
                             'name' => 'pagebreak '.$qname++,
-                            'type_id' => QUESPAGEBREAK
+                            'type_id' => QUESPAGEBREAK,
                         ]
                     );
                 }

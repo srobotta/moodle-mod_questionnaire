@@ -17,12 +17,13 @@
 /**
  * This main view page for a questionnaire.
  *
- * @package mod_questionnaire
+ * @package    mod_questionnaire
  * @copyright  2016 Mike Churchward (mike.churchward@poetgroup.org)
  * @author     Mike Churchward
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  */
+
 require_once("../../config.php");
 require_once($CFG->dirroot.'/mod/questionnaire/locallib.php');
 require_once($CFG->libdir . '/completionlib.php');
@@ -114,11 +115,11 @@ if (isguestuser()) {
 $context = context_module::instance($questionnaire->cm->id);
 $anonymous = $questionnaire->respondenttype == 'anonymous';
 
-$event = \mod_questionnaire\event\course_module_viewed::create(array(
-                'objectid' => $questionnaire->id,
-                'anonymous' => $anonymous,
-                'context' => $context
-));
+$event = \mod_questionnaire\event\course_module_viewed::create([
+    'objectid' => $questionnaire->id,
+    'anonymous' => $anonymous,
+    'context' => $context,
+]);
 $event->trigger();
 
 $usernumresp = $questionnaire->count_submissions($USER->id);

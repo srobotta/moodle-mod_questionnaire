@@ -16,8 +16,8 @@
 
 namespace mod_questionnaire\responsetype;
 
-use \html_writer;
-use \html_table;
+use html_writer;
+use html_table;
 
 use mod_questionnaire\db\bulk_sql_config;
 

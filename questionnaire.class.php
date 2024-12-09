@@ -310,7 +310,7 @@ class questionnaire {
                     'courseid' => $this->course->id,
                     'relateduserid' => $USER->id,
                     'anonymous' => $anonymous,
-                    'other' => array('questionnaireid' => $this->id)
+                    'other' => ['questionnaireid' => $this->id],
                 );
                 $event = \mod_questionnaire\event\attempt_submitted::create($params);
                 $event->trigger();
@@ -364,7 +364,7 @@ class questionnaire {
             'courseid' => $this->course->id,
             'relateduserid' => $quser,
             'anonymous' => $anonymous,
-            'other' => array('questionnaireid' => $this->id)
+            'other' => ['questionnaireid' => $this->id],
         ];
         $event = \mod_questionnaire\event\attempt_submitted::create($params);
         $event->trigger();
@@ -1396,7 +1396,7 @@ class questionnaire {
                         'context' => $this->context,
                         'courseid' => $this->course->id,
                         'relateduserid' => $userid,
-                        'other' => array('action' => 'vresp', 'currentgroupid' => $currentgroupid, 'rid' => $rid)
+                        'other' => ['action' => 'vresp', 'currentgroupid' => $currentgroupid, 'rid' => $rid],
                     );
                     $event = \mod_questionnaire\event\response_viewed::create($params);
                     $event->trigger();
@@ -1431,7 +1431,7 @@ class questionnaire {
                             'instance' => $this->id,
                             'target' => 'pdf',
                             'individualresponse' => 1,
-                            'rid' => $rid
+                            'rid' => $rid,
                         ]
                     );
                     $downpdficon = new pix_icon('b/pdfdown', $linkname, 'mod_questionnaire');
@@ -2429,7 +2429,7 @@ class questionnaire {
                 'courseid' => $this->course->id,
                 'relateduserid' => $userid,
                 'anonymous' => $anonymous,
-                'other' => array('questionnaireid' => $this->id)
+                'other' => ['questionnaireid' => $this->id],
             );
             $event = \mod_questionnaire\event\attempt_saved::create($params);
             $event->trigger();

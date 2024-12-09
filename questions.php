@@ -124,7 +124,7 @@ if ($delq) {
     $params = array(
                     'context' => $context,
                     'courseid' => $questionnaire->course->id,
-                    'other' => array('questiontype' => $questiontype)
+                    'other' => ['questiontype' => $questiontype],
     );
     $event = \mod_questionnaire\event\question_deleted::create($params);
     $event->trigger();
@@ -300,7 +300,7 @@ if ($action == 'main') {
         $params = array(
                         'context' => $context,
                         'courseid' => $questionnaire->course->id,
-                        'other' => array('questiontype' => $questiontype)
+                        'other' => ['questiontype' => $questiontype],
         );
         $event = \mod_questionnaire\event\question_created::create($params);
         $event->trigger();

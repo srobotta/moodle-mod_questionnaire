@@ -90,7 +90,7 @@ class sectiontext extends question {
             'fieldkey' => $this->mobile_fieldkey(),
             'precise' => $this->precise,
             'qnum' => '',
-            'errormessage' => get_string('required') . ': ' . $this->name
+            'errormessage' => get_string('required') . ': ' . $this->name,
         ];
 
         $mobiledata->issectiontext = true;

@@ -250,7 +250,7 @@ if ($fullname) {
                 TABLE_VAR_SORT => 'ssort',
                 TABLE_VAR_IFIRST => 'sifirst',
                 TABLE_VAR_ILAST => 'silast',
-                TABLE_VAR_PAGE => 'spage'
+                TABLE_VAR_PAGE => 'spage',
                 ));
 
     $table->no_sorting('status');
@@ -521,6 +521,6 @@ $anonymous = $questionnaire->respondenttype == 'anonymous';
 $event = \mod_questionnaire\event\non_respondents_viewed::create(array(
                 'objectid' => $questionnaire->id,
                 'anonymous' => $anonymous,
-                'context' => $context
+                'context' => $context,
 ));
 $event->trigger();

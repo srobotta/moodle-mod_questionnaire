@@ -231,7 +231,7 @@ class behat_mod_questionnaire extends behat_base {
             array("13", $sid, "q13", "8", null, "5", "1", "14", "<p>Rate this.<br></p>", "n", "n", "0", "0"),
             array("14", $sid, null, "99", null, "0", "0", "12", "break", "n", "y", "0", "0"),
             array("15", $sid, null, "99", null, "0", "0", "12", "break", "n", "n", "0", "0"),
-            array("16", $sid, "Q1", "10", null, "3", "2", "15", "Enter a number<br><p><br></p>", "y", "n", "0", "0")
+            array("16", $sid, "Q1", "10", null, "3", "2", "15", "Enter a number<br><p><br></p>", "y", "n", "0", "0"),
         );
 
         $choicedata = array(
@@ -257,7 +257,7 @@ class behat_mod_questionnaire extends behat_base {
             array("19", "13", "Lamp", null),
             array("20", "13", "Huh?", null),
             array("21", "7", "!other=Another number", null),
-            array("22", "12", "!other=Something else", null)
+            array("22", "12", "!other=Something else", null),
         );
 
         $this->add_data($questiondata, 'questionnaire_question', 'questionmap');
@@ -282,7 +282,7 @@ class behat_mod_questionnaire extends behat_base {
             array("4", $qid, "1452020444", "y", "0", "2"),
             array("5", $qid, "1452804783", "y", "0", "2"),
             array("6", $qid, "1452806547", "y", "0", "2"),
-            array("7", $qid, "1465415731", "n", "0", "2")
+            array("7", $qid, "1465415731", "n", "0", "2"),
         );
         $this->add_data($responses, 'questionnaire_response', 'responsemap');
 
@@ -301,7 +301,7 @@ class behat_mod_questionnaire extends behat_base {
             array("", "6", "1", "n"),
             array("", "6", "4", "n"),
             array("", "7", "1", "y"),
-            array("", "7", "4", "y")
+            array("", "7", "4", "y"),
         );
         $this->add_data($responsebool, 'questionnaire_response_bool', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id'));
@@ -313,7 +313,7 @@ class behat_mod_questionnaire extends behat_base {
             array("", "3", "8", "2015-12-04"),
             array("", "4", "8", "2016-01-06"),
             array("", "5", "8", "2016-01-13"),
-            array("", "6", "8", "2016-01-13")
+            array("", "6", "8", "2016-01-13"),
         );
         $this->add_data($responsedate, 'questionnaire_response_date', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id'));
@@ -322,7 +322,7 @@ class behat_mod_questionnaire extends behat_base {
             array("id", "response_id", "question_id", "choice_id", "response"),
             array("", "5", "7", "21", "Forty-four"),
             array("", "6", "12", "22", "Green"),
-            array("", "7", "7", "21", "5")
+            array("", "7", "7", "21", "5"),
         );
         $this->add_data($responseother, 'questionnaire_response_other', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id', 'choicemap' => 'choice_id'));
@@ -363,7 +363,7 @@ class behat_mod_questionnaire extends behat_base {
             array("", "7", "13", "17", "-999"),
             array("", "7", "13", "18", "-999"),
             array("", "7", "13", "19", "-999"),
-            array("", "7", "13", "20", "-999")
+            array("", "7", "13", "20", "-999"),
         );
         $this->add_data($responserank, 'questionnaire_response_rank', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id', 'choicemap' => 'choice_id'));
@@ -384,7 +384,7 @@ class behat_mod_questionnaire extends behat_base {
             array("", "5", "7", "21"),
             array("", "6", "7", "2"),
             array("", "6", "7", "5"),
-            array("", "7", "7", "21")
+            array("", "7", "7", "21"),
         );
         $this->add_data($respmultiple, 'questionnaire_resp_multiple', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id', 'choicemap' => 'choice_id'));
@@ -402,7 +402,7 @@ class behat_mod_questionnaire extends behat_base {
             array("", "5", "9", "6"),
             array("", "5", "12", "13"),
             array("", "6", "9", "7"),
-            array("", "6", "12", "22")
+            array("", "6", "12", "22"),
         );
         $this->add_data($respsingle, 'questionnaire_resp_single', '',
             array('responsemap' => 'response_id', 'questionmap' => 'question_id', 'choicemap' => 'choice_id'));
@@ -604,7 +604,7 @@ class behat_mod_questionnaire extends behat_base {
         // catching the exception thrown by behat_base::find() in case is not multiple.
         $this->execute('behat_general::i_click_on_in_the', [
             'div.fp-btn-add a, input.fp-btn-choose', 'css_element',
-            $filemanagernode, 'NodeElement'
+            $filemanagernode, 'NodeElement',
         ]);
 
         // Wait for the default repository (if any) to load. This checks that

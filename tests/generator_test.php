@@ -24,7 +24,6 @@ namespace mod_questionnaire;
  * @author     Mike Churchward
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class generator_test extends \advanced_testcase {
     /**
      * Test case for the create_instance function.

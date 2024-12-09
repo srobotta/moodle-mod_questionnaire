@@ -181,7 +181,7 @@ class responsetypes_test extends \advanced_testcase {
             (object)['content' => 'One', 'value' => 1],
             (object)['content' => 'Two', 'value' => 2],
             (object)['content' => 'Three', 'value' => 3],
-            (object)['content' => '!other=Something else', 'value' => 4]
+            (object)['content' => '!other=Something else', 'value' => 4],
         ];
         $questionnaire = $generator->create_test_questionnaire($course, QUESRADIO, ['content' => 'Select one'], $choicedata);
 
@@ -255,7 +255,7 @@ class responsetypes_test extends \advanced_testcase {
             (object)['content' => 'One', 'value' => 1],
             (object)['content' => 'Two', 'value' => 2],
             (object)['content' => 'Three', 'value' => 3],
-            (object)['content' => '!other=Another number', 'value' => 4]
+            (object)['content' => '!other=Another number', 'value' => 4],
         ];
         $questionnaire = $generator->create_test_questionnaire($course, QUESCHECK, ['content' => 'Select any'], $choicedata);
 
@@ -314,7 +314,7 @@ class responsetypes_test extends \advanced_testcase {
         $choicedata = [
             (object)['content' => 'One', 'value' => 1],
             (object)['content' => 'Two', 'value' => 2],
-            (object)['content' => 'Three', 'value' => 3]
+            (object)['content' => 'Three', 'value' => 3],
         ];
         $questiondata = ['content' => 'Rank these', 'length' => 5, 'precise' => 0];
         $questionnaire = $generator->create_test_questionnaire($course, QUESRATE, $questiondata, $choicedata);

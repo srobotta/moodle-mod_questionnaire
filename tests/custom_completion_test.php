@@ -54,16 +54,16 @@ class custom_completion_test extends \advanced_testcase {
     public function get_state_provider(): array {
         return [
             'Undefined rule' => [
-                'somenonexistentrule', COMPLETION_DISABLED, false, null, coding_exception::class
+                'somenonexistentrule', COMPLETION_DISABLED, false, null, coding_exception::class,
             ],
             'Rule not available' => [
-                'completionsubmit', COMPLETION_DISABLED, false, null, moodle_exception::class
+                'completionsubmit', COMPLETION_DISABLED, false, null, moodle_exception::class,
             ],
             'Rule available, user has not submitted' => [
-                'completionsubmit', COMPLETION_ENABLED, false, COMPLETION_INCOMPLETE, null
+                'completionsubmit', COMPLETION_ENABLED, false, COMPLETION_INCOMPLETE, null,
             ],
             'Rule available, user has submitted' => [
-                'completionsubmit', COMPLETION_ENABLED, true, COMPLETION_COMPLETE, null
+                'completionsubmit', COMPLETION_ENABLED, true, COMPLETION_COMPLETE, null,
             ],
         ];
     }
@@ -181,10 +181,10 @@ class custom_completion_test extends \advanced_testcase {
     public function get_available_custom_rules_provider(): array {
         return [
             'Completion submit available' => [
-                COMPLETION_ENABLED, ['completionsubmit']
+                COMPLETION_ENABLED, ['completionsubmit'],
             ],
             'Completion submit not available' => [
-                COMPLETION_DISABLED, []
+                COMPLETION_DISABLED, [],
             ],
         ];
     }
@@ -202,8 +202,8 @@ class custom_completion_test extends \advanced_testcase {
     public function test_get_available_custom_rules(int $status, array $expected) {
         $customdataval = [
             'customcompletionrules' => [
-                'completionsubmit' => $status
-            ]
+                'completionsubmit' => $status,
+            ],
         ];
 
         // Build a mock cm_info instance.

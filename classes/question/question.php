@@ -17,10 +17,10 @@
 namespace mod_questionnaire\question;
 use mod_questionnaire\edit_question_form;
 use mod_questionnaire\responsetype\response\response;
-use \questionnaire;
+use questionnaire;
+use html_writer;
 
 defined('MOODLE_INTERNAL') || die();
-use \html_writer;
 
 /**
  * This file contains the parent class for questionnaire question types.
@@ -101,10 +101,10 @@ abstract class question {
     /** @var string $allchoices The list of all question's choices. */
     public $allchoices = '';
 
-    /** @var boolean $required The required flag. */
+    /** @var bool $required The required flag. */
     public $required = 'n';
 
-    /** @var boolean $deleted The deleted flag. */
+    /** @var bool $deleted The deleted flag. */
     public $deleted = 'n';
 
     /** @var mixed $extradata Any custom data for the question type. */
@@ -1577,7 +1577,7 @@ abstract class question {
             'fieldkey' => $this->mobile_fieldkey(),
             'precise' => $this->precise,
             'qnum' => $qnum,
-            'errormessage' => get_string('required') . ': ' . $this->name
+            'errormessage' => get_string('required') . ': ' . $this->name,
         ];
         $mobiledata->choices = $this->mobile_question_choices_display();
 

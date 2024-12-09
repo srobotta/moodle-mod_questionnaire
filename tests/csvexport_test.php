@@ -18,7 +18,9 @@ namespace mod_questionnaire;
 
 /**
  * Unit tests for questionnaire_csvexport_test.
- * @group mod_questionnaire
+ * @package    mod_questionnaire
+ * @copyright  2016 Mike Churchward
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class csvexport_test extends \advanced_testcase {
 

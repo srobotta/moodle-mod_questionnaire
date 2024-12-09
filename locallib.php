@@ -627,7 +627,7 @@ function questionnaire_get_editor_options($context) {
                     'maxfiles' => -1,
                     'context' => $context,
                     'noclean' => 0,
-                    'trusttext' => 0
+                    'trusttext' => 0,
     );
 }
 

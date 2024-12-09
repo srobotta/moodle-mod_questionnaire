@@ -35,9 +35,9 @@ $capabilities = array(
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
+            'manager' => CAP_ALLOW,
         ),
-        'clonepermissionsfrom' => 'moodle/course:manageactivities'
+        'clonepermissionsfrom' => 'moodle/course:manageactivities',
     ),
 
     // Ability to see that the questionnaire exists, and the basic information
@@ -51,8 +51,8 @@ $capabilities = array(
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
             'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to complete the questionnaire and submit.
@@ -61,8 +61,8 @@ $capabilities = array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
-            'student' => CAP_ALLOW
-        )
+            'student' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to view individual responses to the questionnaire.
@@ -73,8 +73,8 @@ $capabilities = array(
         'legacy' => array(
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-         )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Receive a notificaton for every submission.
@@ -85,8 +85,8 @@ $capabilities = array(
         'legacy' => array(
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-         )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to download responses in a CSV file.
@@ -97,8 +97,8 @@ $capabilities = array(
         'legacy' => array(
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to delete someone's (or own) previous responses.
@@ -108,8 +108,8 @@ $capabilities = array(
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to create and edit surveys.
@@ -121,8 +121,8 @@ $capabilities = array(
         'legacy' => array(
             'editingteacher' => CAP_ALLOW,
             'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to edit survey questions.
@@ -134,8 +134,8 @@ $capabilities = array(
         'legacy' => array(
             'editingteacher' => CAP_ALLOW,
             'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to create template surveys which can be copied, but not used.
@@ -145,8 +145,8 @@ $capabilities = array(
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
             'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to create public surveys which can be accessed from multiple places.
@@ -156,8 +156,8 @@ $capabilities = array(
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
             'coursecreator' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+            'manager' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to read own previous responses to questionnaires.
@@ -167,8 +167,8 @@ $capabilities = array(
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
             'manager' => CAP_ALLOW,
-            'student' => CAP_ALLOW
-        )
+            'student' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to read others' previous responses to questionnaires.
@@ -182,8 +182,8 @@ $capabilities = array(
             'manager' => CAP_ALLOW,
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'student' => CAP_ALLOW
-        )
+            'student' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to read others's responses without the above checks.
@@ -194,8 +194,8 @@ $capabilities = array(
         'legacy' => array(
             'manager' => CAP_ALLOW,
             'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW
-        )
+            'editingteacher' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to print a blank questionnaire.
@@ -208,8 +208,8 @@ $capabilities = array(
             'coursecreator' => CAP_ALLOW,
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'student' => CAP_ALLOW
-        )
+            'student' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to preview a questionnaire.
@@ -221,8 +221,8 @@ $capabilities = array(
                         'manager' => CAP_ALLOW,
                         'coursecreator' => CAP_ALLOW,
                         'teacher' => CAP_ALLOW,
-                        'editingteacher' => CAP_ALLOW
-        )
+                        'editingteacher' => CAP_ALLOW,
+        ),
     ),
 
     // Ability to message students from a questionnaire.
@@ -234,8 +234,8 @@ $capabilities = array(
         'archetypes' => array(
                             'manager' => CAP_ALLOW,
                             'teacher' => CAP_ALLOW,
-                            'editingteacher' => CAP_ALLOW
-        )
-    )
+                            'editingteacher' => CAP_ALLOW,
+        ),
+    ),
 
 );
