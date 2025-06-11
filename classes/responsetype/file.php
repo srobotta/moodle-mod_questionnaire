@@ -134,7 +134,7 @@ class file extends responsetype {
         ]);
         if ($record) {
             // Old record found, then delete all referenced entries in the files table and then delete this entry.
-            $DB->delete_records('files', ['component' => 'mod_questionnaire', 'itemid' => $record->itemid]);
+            $DB->delete_records('files', ['component' => 'mod_questionnaire', 'itemid' => $record->id]);
             $DB->delete_records(self::response_table(), ['id' => $record->id]);
         }
     }
