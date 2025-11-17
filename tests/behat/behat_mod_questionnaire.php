@@ -583,10 +583,10 @@ class behat_mod_questionnaire extends behat_base {
     /**
      * Try to get the filemanager node of a given question.
      *
-     * @param $question
+     * @param string $question
      * @return \Behat\Mink\Element\NodeElement|null
      */
-    protected function get_filepicker_node($question) {
+    protected function get_filepicker_node($question): \Behat\Mink\Element\NodeElement|null {
         // More info about the problem (in case there is a problem).
         $exception = new ExpectationException('The filepicker for the question with text "' . $question .
             '" can not be found', $this->getSession());
@@ -615,8 +615,12 @@ class behat_mod_questionnaire extends behat_base {
      * @throws DriverException
      * @throws ExpectationException Thrown by behat_base::find
      */
-    protected function upload_file_to_question_filemanager_questionnaire($filepath, $question, TableNode $data,
-        $overwriteaction = false) {
+    protected function upload_file_to_question_filemanager_questionnaire(
+        $filepath,
+        $question,
+        TableNode $data,
+        $overwriteaction = false
+    ) {
         global $CFG;
 
         if (!$this->has_tag('_file_upload')) {
@@ -665,7 +669,6 @@ class behat_mod_questionnaire extends behat_base {
 
         // The action depends on the field type.
         foreach ($datahash as $locator => $value) {
-
             $field = behat_field_manager::get_form_field_from_label($locator, $this);
 
             // Delegates to the field class.
@@ -687,7 +690,6 @@ class behat_mod_questionnaire extends behat_base {
             // We wait for all the JS to finish.
             $this->getSession()->wait(self::get_timeout(), self::PAGE_READY_JS);
         }
-
     }
 
     /**
@@ -714,7 +716,8 @@ class behat_mod_questionnaire extends behat_base {
             "//div[contains(concat(' ', normalize-space(@class), ' '), ' file-picker ')]" .
             "//div[contains(concat(' ', normalize-space(@class), ' '), ' fp-content ')]" .
             "[not(descendant::div[contains(concat(' ', normalize-space(@class), ' '), ' fp-content-loading ')])]",
-            'xpath_element');
+            'xpath_element'
+        );
 
         // Getting the repository link and opening it.
         $repoexception =
@@ -742,7 +745,7 @@ class behat_mod_questionnaire extends behat_base {
             }
         }
         if ($repositorylink instanceof \Exception) {
-            throw new $repositorylink;
+            throw new $repositorylink();
         }
         // Selecting the repo.
         if (!$repositorylink->getParent()->getParent()->hasClass('active')) {

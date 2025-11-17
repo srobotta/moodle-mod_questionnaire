@@ -31,7 +31,6 @@ use MoodleQuickForm;
  * @package mod_questionnaire
  */
 class file extends question {
-
     /**
      * Get name.
      *
@@ -88,8 +87,14 @@ class file extends question {
             $draftitemid = file_get_submitted_draft_itemid($elname);
         }
         if ($draftitemid > 0) {
-            file_prepare_draft_area($draftitemid, $this->context->id,
-                'mod_questionnaire', 'file', $this->id, self::get_file_manager_option());
+            file_prepare_draft_area(
+                $draftitemid,
+                $this->context->id,
+                'mod_questionnaire',
+                'file',
+                $this->id,
+                self::get_file_manager_option()
+            );
         } else {
             $draftitemid = file_get_unused_draft_itemid();
         }
@@ -122,12 +127,13 @@ class file extends question {
     public function response_complete($responsedata) {
         $answered = false;
         // If $responsedata is a response object, look through the answers.
-        if (is_a($responsedata, 'mod_questionnaire\responsetype\response\response') &&
+        if (
+            is_a($responsedata, 'mod_questionnaire\responsetype\response\response') &&
             isset($responsedata->answers[$this->id]) && !empty($responsedata->answers[$this->id])
         ) {
             $answer = reset($responsedata->answers[$this->id]);
             $answered = ((int)$answer->value > 0);
-        } else if (isset($responsedata->{'q'.$this->id})) {
+        } else if (isset($responsedata->{'q' . $this->id})) {
             // If $responsedata is webform data, check that it is not empty.
             $draftitemid = (int)$responsedata->{'q' . $this->id};
             if ($draftitemid > 0) {
@@ -186,22 +192,19 @@ class file extends question {
             $title = '';
 
             $mediamanager = core_media_manager::instance($PAGE);
-            $embedoptions = array(
+            $embedoptions = [
                 core_media_manager::OPTION_TRUSTED => true,
                 core_media_manager::OPTION_BLOCK => true,
-            );
+            ];
 
             if (file_mimetype_in_typegroup($mimetype, 'web_image')) {  // It's an image.
                 $code = resourcelib_embed_image($moodleurl->out(), $title);
-
             } else if ($mimetype === 'application/pdf') {
                 // PDF document.
                 $code = resourcelib_embed_pdf($moodleurl->out(), $title, get_string('view'));
-
             } else if ($mediamanager->can_embed_url($moodleurl, $embedoptions)) {
                 // Media (audio/video) file.
                 $code = $mediamanager->embed_url($moodleurl, $title, 0, 0, $embedoptions);
-
             } else {
                 // We need a way to discover if we are loading remote docs inside an iframe.
                 $moodleurl->param('embed', 1);
@@ -234,5 +237,4 @@ class file extends question {
     protected function form_precise(MoodleQuickForm $mform, $helpname = '') {
         return question::form_precise_hidden($mform);
     }
-
 }

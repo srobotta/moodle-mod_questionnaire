@@ -44,14 +44,23 @@ class file extends responsetype {
             $record->responseid = $responsedata->rid;
             $record->questionid = $question->id;
 
-            file_save_draft_area_files($val, $question->context->id,
-                'mod_questionnaire', 'file', $val,
-                \mod_questionnaire\question\file::get_file_manager_option());
+            file_save_draft_area_files(
+                $val,
+                $question->context->id,
+                'mod_questionnaire',
+                'file',
+                $val,
+                \mod_questionnaire\question\file::get_file_manager_option()
+            );
             $fs = get_file_storage();
-            $files = $fs->get_area_files($question->context->id, 'mod_questionnaire',
-                'file', $val,
+            $files = $fs->get_area_files(
+                $question->context->id,
+                'mod_questionnaire',
+                'file',
+                $val,
                 "itemid, filepath, filename",
-                false);
+                false
+            );
             if (!empty($files)) {
                 $file = reset($files);
                 $record->value = $file->get_id();
@@ -172,8 +181,10 @@ class file extends responsetype {
                 if (!$olditem) {
                     return false;
                 }
-                $siblings = $DB->get_records('files',
-                    ['component' => 'mod_questionnaire', 'itemid' => $olditem->itemid]);
+                $siblings = $DB->get_records(
+                    'files',
+                    ['component' => 'mod_questionnaire', 'itemid' => $olditem->itemid]
+                );
                 foreach ($siblings as $sibling) {
                     if (!self::fix_file_itemid($recordid, $sibling)) {
                         return false;
@@ -200,8 +211,14 @@ class file extends responsetype {
         }
         $fs = get_file_storage();
         $file = $fs->get_file_instance($filerecord);
-        $newhash = $fs->get_pathname_hash($filerecord->contextid, $filerecord->component,
-            $filerecord->filearea, $recordid, $file->get_filepath(), $file->get_filename());
+        $newhash = $fs->get_pathname_hash(
+            $filerecord->contextid,
+            $filerecord->component,
+            $filerecord->filearea,
+            $recordid,
+            $file->get_filepath(),
+            $file->get_filename()
+        );
         $filerecord->itemid = $recordid;
         $filerecord->pathnamehash = $newhash;
         return $DB->update_record('files', $filerecord);
@@ -267,7 +284,7 @@ class file extends responsetype {
 
         $rsql = '';
         if (!empty($rids)) {
-            list($rsql, $params) = $DB->get_in_or_equal($rids);
+            [$rsql, $params] = $DB->get_in_or_equal($rids);
             $rsql = ' AND response_id ' . $rsql;
         }
 
@@ -338,7 +355,8 @@ class file extends responsetype {
                         $file->get_filearea(),
                         $file->get_itemid(),
                         $file->get_filepath(),
-                        $file->get_filename());
+                        $file->get_filename()
+                    );
 
                     $response->text = \html_writer::link($imageurl, $file->get_filename());
                     if ($viewsingleresponse && $nonanonymous) {
@@ -419,4 +437,3 @@ class file extends responsetype {
         return new bulk_sql_config(static::response_table(), 'qrt', false, false, false);
     }
 }
-
